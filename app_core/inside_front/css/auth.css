@@ -1,0 +1,104 @@
+/* ---------------------- Login register page -------------------------------------------- ----------------------*/
+
+.log_reg_container{
+    width:100%;
+    max-width:400px;
+    margin:0 auto;
+    margin-top:20px;
+    padding: 20px;
+}
+.log_reg_container .heading_buttons{
+    margin-bottom:20px;
+}
+.log_reg_container .form-group label{
+    font-size: 15px;
+    font-weight: bold;
+}
+.log_reg_container .form-group input{
+    height: 52px;
+    border: 1px solid rgba(216, 216, 216, 1);
+    border-radius: 2px;
+}
+.log_reg_container .heading_buttons:after{
+    content:"";
+    clear:both;
+    display:table;
+}
+
+.log_reg_container .heading_buttons .lr_btn{
+    border:none;
+    background:none;
+    font-size: 17px;
+    padding:0;
+    border-bottom:1px solid;
+    border-bottom-style:dashed;
+}
+
+.log_reg_container .heading_buttons .lr_btn.active{
+    font-weight: bold;
+    border-color:transparent;
+    color:#4cae4c;
+}
+.log_reg_container .heading_buttons .left_btn{
+    float:left;
+}
+.log_reg_container .heading_buttons .right_btn{
+    float:right;
+    text-align:right;
+}
+.log_reg_container .forgot_group{
+    text-align:right;
+}
+.log_reg_container .forgot_group .forgot_pass{
+    cursor:pointer;
+}
+.log_reg_container .bottom_btn{
+    width:100%;
+    height:52px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.log_reg_container .register_block, .log_reg_container .restore_block{
+    display:none;
+}
+.log_reg_container .soc_group .btn{
+    width:100%;
+    height: 40px;
+    border-radius: 2px;
+    line-height: 28px;
+    font-size:16px;
+}
+.log_reg_container .soc_group .btn .fa{
+    margin-right:5px;
+}
+.log_reg_container .soc_group .btn.btn-danger{
+    background-color:#e15541;
+}
+.log_reg_container .soc_group .btn.btn-danger:hover{
+    border-color:transparent;
+}
+.log_reg_container .soc_group .btn.btn-primary{
+    background-color:#3d65a5;
+}
+.log_reg_container .soc_group .btn.btn-primary:hover{
+    border-color:transparent;
+}
+.log_reg_container .alert_msg{
+    color: #a94442;
+}
+.restore_block .restore_title{
+    text-align:center;
+}
+.restore_block .restore_title label{
+    font-size:20px;
+    margin-bottom:10px;
+}
+#fb_login_a {
+    color: white;
+}
+
+/* ------------ Profile ------------ */
+
+.profile_img {
+    width: 100%;
+}

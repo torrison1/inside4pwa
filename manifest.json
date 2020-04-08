@@ -1,0 +1,15 @@
+{
+  "background_color": "silver",
+  "description": "Inside PWA Core.",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "pwa/icon/fox-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "name": "Inside PWA Core",
+  "short_name": "Inside PWA",
+  "start_url": "./index.html"
+}
