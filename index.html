@@ -38,18 +38,46 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <!-- ---------------------------------------  Nav  ------------------------------------------------ -->
 
-    <script src="app_core/inside_front/jquery-ui-1.10.1.custom.min.js"></script>
-
-    <script src="app_core/inside_front/jquery.form.js"></script>
-
-    <script src="app_core/inside_front/jquery.cookie.js"></script>
+    <link rel="stylesheet" href="app_core/inside_front/menu_basis/files/css/demo.css">
+    <link rel="stylesheet" href="app_core/inside_front/menu_basis/files/touch_sideswipe/touch-sideswipe.css">
+    <link rel="stylesheet" href="app_core/inside_front/menu_basis/files/legitRipple/ripple.min.css">
+    <style>
+        .legitRipple-ripple {
+            background: silver;
+        }
+    </style>
 
 </head>
 <body>
 
-<!------------------------------------------ HEADER ---------------------------------------------------->
+<!------------------------------------------ HEADER Mob ---------------------------------------------------->
+<div class="top_block">
+    <a class="ripple main_page_click">Logo</a>
+</div>
+
+<div class="bottom_block">
+
+    <div class="ripple auth_click"><i class="fas fa-user"></i></div>
+    <div class="ripple contacts_page_click"><i class="fas fa-phone"></i></div>
+    <div class="ripple blog_list_click"><i class="fas fa-rss" ></i></div>
+    <div class="menu_open ripple"><i class="fas fa-bars"></i></div>
+
+</div>
+
+<div id="touchSideSwipe" class="touch-side-swipe">
+    <ul>
+        <li style="height: 100px;" class="auth_click">My Profile</li>
+        <li class="ripple main_page_click">Home Page</li>
+        <li class="ripple blog_list_click">Content</li>
+        <li class="ripple contacts_page_click">Contacts</li>
+        <li class="ripple">Agreement</li>
+        <li class="ripple auth_click">Login / Logout</li>
+    </ul>
+</div>
+
+<!------------------------------------------ HEADER PC ---------------------------------------------------->
 <header>
     <nav class="navbar navbar-expand-md navbar-light top_navbar">
         <div class="container">
@@ -102,6 +130,45 @@
 
 
 <!------------------------------------------ Scripts Blocks ---------------------------------------------------->
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+
+<script src="app_core/inside_front/jquery-ui-1.10.1.custom.min.js"></script>
+
+<script src="app_core/inside_front/jquery.form.js"></script>
+
+<script src="app_core/inside_front/jquery.cookie.js"></script>
+
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+
+<script src="app_core/inside_front/menu_basis/files/legitRipple/ripple.min.js"></script>
+<script src="app_core/inside_front/menu_basis/files/touch_sideswipe/touch-sideswipe.js"></script>
+<script type="text/javascript">
+
+    $('.ripple').ripple({
+        scaleMode: false,
+        maxDiameter: "100%"
+    });
+
+
+    var config = {
+        elementID: 'touchSideSwipe',
+        elementWidth: 400, //px
+        elementMaxWidth: 0.8, // *100%
+        sideHookWidth: 44, //px
+        moveSpeed: 0.2, //sec
+        opacityBackground: 0.8,
+        shiftForStart: 50, // px
+        windowMaxWidth: 1024, // px
+    }
+    var touchSideSwipe = new TouchSideSwipe(config);
+
+    document.getElementsByClassName('menu_open')[0].addEventListener('click', function(){touchSideSwipe.tssOpen()});
+</script>
+<!-- ---------------------------------------------------------------------------------------------- -->
 
 <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="app_core/js/bootstrap.min.js"></script>

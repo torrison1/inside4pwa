@@ -64,9 +64,16 @@ $(document).ready(function() {
 });
 
 function close_all_before_page_load(click_obj) {
+
+    setTimeout(touchSideSwipe.tssClose(), 300);
+
+    // ------------- OLD Menu (TO DEL) ---------------
+    /*
     $(click_obj).css('background', '#efe');
     setTimeout(function(){
         $(click_obj).css('background', '#eee');
     }, 200);
     $('.navbar-collapse').collapse('hide');
+
+    */
 }

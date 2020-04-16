@@ -76,3 +76,44 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(function(){
+
+        // Login register tabs
+        $(".tab_btn").on("click", function(){
+            var target = $(this).attr("data-target");
+
+            $(".tab_btn").removeClass("active");
+            $(this).addClass("active");
+
+            $(".tab").hide();
+            $(".tab." + target).show("fast");
+        });
+
+        $('#fb_login_a').on('click', function(){
+
+            alert('Facebook Login');
+
+        });
+
+        $('#login-ok').on('click', function(){
+
+            alert('API Check Login');
+
+        });
+
+        $('#reg-ok').on('click', function(){
+
+            alert('API Check Register');
+
+        });
+
+        $('#instruction-ok').on('click', function(){
+
+            alert('API Forget Password');
+
+        });
+
+    });
+</script>

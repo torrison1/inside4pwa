@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Touch side swipe Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./files/css/demo.css">
+    <link rel="stylesheet" href="./files/touch_sideswipe/touch-sideswipe.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script src="./files/touch_ripple/touch-ripple.js"></script>
+    <link href="./files/touch_ripple/touch-ripple.css" rel="stylesheet">
+
+    <script src="./files/legitRipple/ripple.min.js"></script>
+    <link rel="stylesheet" href="./files/legitRipple/ripple.min.css">
+
+    <style>
+        .legitRipple-ripple {
+            background: silver;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="top_block">
+        Logo
+    </div>
+
+    <div class="bottom_block">
+
+            <div class="ripple">A</div>
+            <div class="ripple">W</div>
+            <div class="ripple">Z</div>
+            <div class="menu_open ripple">M</div>
+
+    </div>
+
+    <div id="touchSideSwipe" class="touch-side-swipe">
+        <ul>
+            <li style="height: 100px;"><a href="#">Alex Man</a></li>
+            <li class="touch-ripple"><a href="#">Services</a></li>
+            <li class="touch-ripple"><a href="#">My Orders</a></li>
+            <li class="touch-ripple"><a href="#">My Profile</a></li>
+            <li class="touch-ripple"><a href="#">Logout</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1 class="ripple">Touch side swipe Demo</h1>
+        <p>Touch side swipe - widget-library for mobile navbar (writed on vanilla js and little bit css).</p>
+        <h2>How to use demo</h2>
+        <p>If you're in touch devise: touch (swipe) left window side to right</p>
+        <p>If you're in Chrome:</p>
+        <ol>
+            <li>Activate "Web-inspector"</li>
+            <li>Activate "Toogle device toolbar"</li>
+            <li>Reload window</li>
+            <li>Touch (swipe) left window side to right</li>
+        </ol>
+        <p>Public api-functions for call open/close *:
+            <br>
+            <button id="callOpen" style="color:#a0302c">touchSideSwipe.tssOpen()</button>
+            <br>
+            <button  id="callClose" style="color:#a0302c">touchSideSwipe.tssClose()</button>
+            <br>
+            ( and you can use <span style="color:#a0302c">touchSideSwipe.tssOpen() and touchSideSwipe.tssClose() </span> only when window inner width < option windowMaxWidth in config.
+        </p>
+        <p> * or document.querySelector('.tss-label').click();</p>
+    </div>
+    <!---->
+
+    <script src="./files/touch_sideswipe/touch-sideswipe.js"></script>
+    <script type="text/javascript">
+
+        $('body').touchRipple();
+
+        $('.ripple').ripple({
+            scaleMode: false,
+            maxDiameter: "100%"
+        });
+
+
+        var config = {
+            elementID: 'touchSideSwipe',
+            elementWidth: 400, //px
+            elementMaxWidth: 0.8, // *100%
+            sideHookWidth: 44, //px
+            moveSpeed: 0.2, //sec
+            opacityBackground: 0.8,
+            shiftForStart: 50, // px
+            windowMaxWidth: 1024, // px
+        }
+        var touchSideSwipe = new TouchSideSwipe(config);
+
+        // demo open/close on load document
+        // setTimeout(function() {touchSideSwipe.tssOpen()}, 2000);
+        // setTimeout(function() {touchSideSwipe.tssClose()}, 3500);
+        // demo open/close buttons
+        document.getElementById('callOpen').addEventListener('click', function(){touchSideSwipe.tssOpen()});
+        document.getElementById('callClose').addEventListener('click', function(){touchSideSwipe.tssClose()});
+
+        document.getElementsByClassName('menu_open')[0].addEventListener('click', function(){touchSideSwipe.tssOpen()});
+    </script>
+
+</body>
+
+</html>
