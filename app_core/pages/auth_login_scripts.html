@@ -1,0 +1,138 @@
+
+<script>
+    $(function(){
+
+        // alert('Ready!');
+
+        // Login register tabs
+        $(".tab_btn").on("click", function(){
+            var target = $(this).attr("data-target");
+
+            $(".tab_btn").removeClass("active");
+            $(this).addClass("active");
+
+            $(".tab").hide();
+            $(".tab." + target).show("fast");
+        });
+
+    });
+
+    $(function() {
+
+        $('#fb_login_a').on('click', function () {
+            $.get('/auth_api/fb_oauth_link', function(data) {
+                // location.href = data;
+                alert(data);
+            });
+        });
+        // ------------------------------------------ Login ----------------
+
+        $('#login-ok').on('click', function() {
+
+            api_call('/auth_api/check_login', 'POST', function(data){
+
+                dump_log(data);
+                if (data.status == "success") {
+
+                    console.log(data.ci_session);
+                    // Save Session Cookie
+                    check_user_row();
+                    load_page('app_core/pages/auth_profile.html', true, true, true);
+
+                } else {
+                    $('#login-email').addClass('red_border');
+                    $('#login-pass').addClass('red_border');
+                    $('#login_message').html(data.message);
+                }
+
+            }, {
+                'email' : $('#login-email').val(),
+                'password' : $('#login-pass').val(),
+            });
+        });
+
+
+        // ---------------------------------------- Dublicate For KeyDown ---
+        $('#login-pass').keyup(function (event) {
+            if(event.keyCode=='13') {
+                $('#login-ok').click();
+            }
+
+        });
+        // ------------------------------------------ Reg ----------------
+        $('#reg-ok').on('click', function() {
+
+            api_call('/auth_api/check_reg', 'POST', function(data){
+
+                dump_log(data);
+                if (data.status == "success") {
+
+                    console.log(data.ci_session);
+                    // Save Session Cookie
+                    check_user_row();
+                    load_page('app_core/pages/auth_profile.html', true, true, true);
+
+                } else {
+                    $('#reg-email').addClass('red_border');
+                    $('#reg-pass').addClass('red_border');
+                    $('#register_message').html(data.message);
+                }
+
+            }, {
+                'r_email' : $('#reg-email').val(),
+                'r_password' : $('#reg-pass').val(),
+            });
+
+        });
+
+        $('#fgot_pass').on('click', function() {
+            $("#register").toggle();
+            $("#recovery").toggle();
+
+        });
+        $('#cancel_recovery').on('click', function() {
+            $("#recovery").hide();
+            $("#register").show();
+
+        });
+
+        // ---------------------------------------- Dublicate For KeyDown ---
+        $('#reg-pass').keyup(function (event) {
+            if(event.keyCode=='13') {
+                $('#reg-ok').click();
+            }
+
+        });
+
+        // ------------------------------------------ Recovery ----------------
+        $('#instruction-ok').on('click', function() {
+
+            api_call('/auth_api/check_recovery', 'POST', function(data){
+
+                dump_log(data);
+                if (data.status == "success") {
+                    $('#recovery_message').html(data.message);
+                    $('#instruction-ok').hide();
+                } else {
+                    $('#recovery_email').addClass('red_border');
+                    $('#recovery_message').html(data.message);
+                }
+
+            }, {
+                'recovery_email' : $('#recovery_email').val()
+            });
+
+        });
+
+
+        // ---------------------------------------- Dublicate For KeyDown ---
+        $('#rec-email').keyup(function (event) {
+            if(event.keyCode=='13') {
+                $('#instruction-ok').click();
+            }
+
+        });
+
+    });
+
+</script>

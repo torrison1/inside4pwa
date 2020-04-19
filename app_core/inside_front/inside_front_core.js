@@ -1,15 +1,16 @@
 // Load MAIN
 
+$.ajaxSetup({cache: false});
+
 let inside_path = 'app_core/inside_front/';
-let loader_div = '<div class="loader_div"><img src="'+inside_path+'img/loading2.gif" alt="loading..." title="by loading.io" class="loader"></div>';
 
 let user_data = {};
+
+let cache_data = {};
 
 $(document).ready(function() {
 
     // -------------------------- Core Script -------------------------------
-
-    $('#page_center').html(loader_div);
 
     check_user_row();
 
@@ -30,9 +31,9 @@ $(document).ready(function() {
     $('.auth_click').on('click', function(){
 
         if (typeof user_data.username !== 'undefined') {
-            load_page('app_core/pages/profile.html', true);
+            load_page('app_core/pages/auth_profile.html', true, true, true);
         } else {
-            load_page('app_core/pages/auth.html', true);
+            load_page('app_core/pages/auth_login.html', true, true);
         }
 
     });
@@ -50,7 +51,7 @@ function check_user_row() {
         localStorage.setItem('user_data', data);
         dump_log(data);
         if (typeof data.username !== 'undefined') {
-            load_page('app_core/pages/profile.html', true);
+            load_page('app_core/pages/auth_profile.html', true, true, true);
         } else {
             load_page('app_core/pages/main.html', true);
         }
@@ -109,14 +110,31 @@ function api_call(url, method, callback_function, post_array = {}) {
 
 }
 
-function load_page(path, loader = false) {
+function load_page(path, loader = false, scripts = false, waiting_for_api_data = false) {
 
     close_all_before_page_load(this);
-    $.get(path+'?_=' + new Date().getTime(), function(data){
-        if (loader) $('#page_center').html(loader_div);
-        $('#page_center').html(data);
 
-    });
+    $('#page_center').html('');
+    $('#scripts_block').html('');
+
+    if (loader) $('#loader_div').show();
+
+    $.ajaxSetup({async:false});
+    $.get(path+'?_=' + new Date().getTime(), function(data){ $('#page_center').html(data);});
+
+    if (waiting_for_api_data) {
+        $('#page_center').hide();
+    } else {
+        $('#loader_div').hide();
+    }
+
+    if (scripts) {
+        let path_scripts = path.replace('.html','_scripts.html');
+        $.get(path_scripts+'?_=' + new Date().getTime(), function(data){
+            $('#scripts_block').html(data);
+        });
+    }
+    $.ajaxSetup({async:true});
 }
 
 function close_all_before_page_load(click_obj) {
@@ -136,7 +154,7 @@ function close_all_before_page_load(click_obj) {
 
 // Debug Function
 function dump_alert(obj) {
-    var out = "";
+    let out = "";
     if(obj && typeof(obj) == "object"){
         for (var i in obj) {
             out += i + ": " + obj[i] + "\n";
@@ -147,7 +165,7 @@ function dump_alert(obj) {
     alert(out);
 };
 function dump_log(obj) {
-    var out = "";
+    let out = "";
     if(obj && typeof(obj) == "object"){
         for (var i in obj) {
             out += i + ": " + obj[i] + "\n";

@@ -14,9 +14,10 @@
 
                         <div class="mt-3">
 
-                            <?php if ($this->ion_auth->is_admin() OR $this->ion_auth->in_group('admin_demo')) {?>
-                            <a class="btn btn-primary w_full mb-3" target="_blank" href="<?=$lang_link_prefix?>/inside">Inside Admin Panel &gt;&gt;</a>
-                            <?php } ?>
+                            <span class="api_toggle admin_button">
+                                <a class="btn btn-primary w_full mb-3" target="_blank" href="<?=$lang_link_prefix?>/inside">Inside Admin Panel &gt;&gt;</a>
+                            </span>
+
                             <a class="btn btn-secondary mb-3" onclick="$('#user_pass').toggle();" ><?=$this->text->get('change_password');?></a>
 
                         </div>
@@ -171,19 +172,4 @@
             </div>
         </div>
     </div>
-
-
 </div>
-
-<script>
-
-    $(function(){
-
-        $('.api_text.user_title').html('['+user_data.id+'] '+user_data.username+' '+user_data.email+'');
-
-        $('.ttext.save_changes').html('Save Changes');
-
-
-    });
-
-</script>
