@@ -37,7 +37,7 @@ $(document).ready(function() {
 
     });
 
-    $('.logout_click').on('click', function(){ load_page('app_core/pages/main.html', true); log_out(); });
+    $('.logout_click').on('click', function(){ log_out(); });
 
 
 });
@@ -62,6 +62,8 @@ function check_user_row() {
 
 function log_out() {
 
+    // alert(111);
+    load_page('app_core/pages/main.html', true);
     user_data = {};
     localStorage.setItem('user_data', '');
     localStorage.setItem('ci_session', '');
