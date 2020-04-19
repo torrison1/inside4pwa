@@ -33,7 +33,7 @@ $(document).ready(function() {
         if (typeof user_data.username !== 'undefined') {
             load_page('app_core/pages/auth_profile.html', true, true, true);
         } else {
-            load_page('app_core/pages/auth_login.html', true, true);
+            load_page('app_core/pages/auth_login.html', true, true, true);
         }
 
     });
@@ -110,7 +110,7 @@ function api_call(url, method, callback_function, post_array = {}) {
 
 }
 
-function load_page(path, loader = false, scripts = false, waiting_for_api_data = false) {
+function load_page(path, loader = false, scripts = false, waiting_for_scripts = false) {
 
     close_all_before_page_load(this);
 
@@ -122,7 +122,7 @@ function load_page(path, loader = false, scripts = false, waiting_for_api_data =
     $.ajaxSetup({async:false});
     $.get(path+'?_=' + new Date().getTime(), function(data){ $('#page_center').html(data);});
 
-    if (waiting_for_api_data) {
+    if (waiting_for_scripts) {
         $('#page_center').hide();
     } else {
         $('#loader_div').hide();
