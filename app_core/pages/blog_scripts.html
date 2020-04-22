@@ -33,8 +33,8 @@
         $.get('/info/feed/?html_blocks=1', function(data){
             $('.pages_list_holder').html(data+data+data+data+data);
 
-            $('#page_center').show();
-            $('#loader_div').hide();
+            JQuery_globals_page_center.show();
+            JQuery_globals_loader_div.hide();
         });
 
     });

@@ -390,12 +390,12 @@ a {
 
 /* ---------- Loader ------------ */
 .loader {
-    width: 100%;
-    max-width:800px;
     display: inline-block;
     margin-top: 100px;
 }
+
 .loader_div {
+    width: 100%;
     text-align: center;
 }
 
