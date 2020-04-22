@@ -144,7 +144,8 @@ function load_page(path, loader = false, scripts = false, waiting_for_scripts = 
         if (Globals_isMobile) {
             JQuery_globals_page_center.show('fade');
         } else {
-            JQuery_globals_page_center.show();
+            // Test Fade on Desktop
+            JQuery_globals_page_center.show('fade');
         }
 
     });
