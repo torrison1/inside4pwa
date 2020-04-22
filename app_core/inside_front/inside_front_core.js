@@ -22,7 +22,7 @@ $(document).ready(function() {
     $('.main_page_click').on('click', function(){ load_page('app_core/pages/main.html', true); });
 
     // -------------------------- Blog List -------------------------------
-    $('.blog_list_click').on('click', function(){ load_page('app_core/pages/blog.html', true); });
+    $('.blog_list_click').on('click', function(){ load_page('app_core/pages/blog.html', true, true, true); });
 
 
     // -------------------------- Auth Click -------------------------------

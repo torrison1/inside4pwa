@@ -1,0 +1,41 @@
+
+<script>
+    $(function(){
+
+        $('.show-list-search-input').autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: '/content/ajaxPostShowListSearch/',
+                    dataType: 'json',
+                    data: {q: request.term},
+                    success: function (data) {
+                        response(data.map(function (value) {
+                            return {
+                                value: value.content_name,
+                                label: value.content_name,
+                            }
+                        }));
+                    }
+                });
+            },
+            select: function (event, ui) {
+                $(this).val(ui.item.value);
+                $('.showListFilterForm').submit();
+            },
+            minLength: 2
+        });
+
+        $('.filters_button_block').on('click', function(e){
+            $(this).next().toggle();
+            e.preventDefault();
+        });
+
+        $.get('/info/feed/?html_blocks=1', function(data){
+            $('.pages_list_holder').html(data+data+data+data+data);
+
+            $('#page_center').show();
+            $('#loader_div').hide();
+        });
+
+    });
+</script>

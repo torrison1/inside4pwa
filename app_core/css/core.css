@@ -311,6 +311,45 @@ a {
     max-width: 365px;
 }
 
+.img-responsive {
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+
+    .content-blog {
+        margin: 70px 0 20px 0;
+    }
+
+    .main_filters_block {
+        position: fixed;
+        top: 50px;
+        width: 100%;
+        z-index:998;
+        padding: 0;
+    }
+    .main_filters_block .filters_button_block{
+        padding: 0 !important;
+        padding-top: 5px !important;
+        margin-top: -2px;
+        margin-bottom: -2px;
+        text-align: center;
+        line-height: 37px;
+        height: 37px;
+    }
+
+
+}
+@media (min-width: 1025px) {
+    .filters_button_block h4 {
+        margin-bottom: 0 !important;
+    }
+    .content-blog {
+        margin: 40px 0 20px 0;
+    }
+}
+
+
 /* --------- Fix Mobile TOP problem ---------- */
 
 @media (max-width: 1000px) {
