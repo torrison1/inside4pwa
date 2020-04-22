@@ -2,8 +2,6 @@
 
 $.ajaxSetup({cache: false});
 
-let inside_path = 'app_core/inside_front/';
-
 let user_data = {};
 
 let cache_data = {};
