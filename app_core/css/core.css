@@ -392,6 +392,7 @@ a {
 .loader {
     display: inline-block;
     margin-top: 100px;
+    width: 100%;
 }
 
 .loader_div {

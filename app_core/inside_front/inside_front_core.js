@@ -26,7 +26,7 @@ $(document).ready(function() {
     // -------------------------- Bind Clicks ------------------------------------------
 
     // -------------------------- Contacts Page -------------------------------
-    $('.contacts_page_click').on('click', function(){ load_page('app_core/pages/contacts.html', true); });
+    $('.contacts_page_click').on('click', function(){ load_page('app_core/pages/contacts.html', false); });
 
 
     // -------------------------- Main Page Back Clicks -------------------------------
@@ -42,7 +42,7 @@ $(document).ready(function() {
         if (typeof user_data.username !== 'undefined') {
             load_page('app_core/pages/auth_profile.html', true, true, true);
         } else {
-            load_page('app_core/pages/auth_login.html', true, true, true);
+            load_page('app_core/pages/auth_login.html', false, true, true);
         }
 
     });
@@ -126,16 +126,17 @@ function load_page(path, loader = false, scripts = false, waiting_for_scripts = 
 
     JQuery_globals_page_center.hide();
 
+    JQuery_globals_page_center.empty();
+
     if (loader) {
         JQuery_globals_loader_div.show();
     }
 
     close_all_before_page_load(this);
 
-    JQuery_globals_page_center.html('');
-    JQuery_globals_scripts_div.html('');
+    JQuery_globals_scripts_div.empty();
 
-    $.ajaxSetup({async:false});
+
 
     // ---------------------------- Get Body -------------------------
     $.get(path+'?_=' + new Date().getTime(), function(data){
@@ -148,22 +149,21 @@ function load_page(path, loader = false, scripts = false, waiting_for_scripts = 
             JQuery_globals_page_center.show('fade');
         }
 
+        if (waiting_for_scripts) {
+            JQuery_globals_page_center.hide();
+        } else {
+            JQuery_globals_loader_div.hide();
+        }
+
+        if (scripts) {
+            let path_scripts = path.replace('.html','_scripts.html');
+            $.get(path_scripts+'?_=' + new Date().getTime(), function(data){
+                JQuery_globals_scripts_div.html(data);
+            });
+        }
+
     });
     // ----------------------------------------------------------------
-
-    if (waiting_for_scripts) {
-        JQuery_globals_page_center.hide();
-    } else {
-        JQuery_globals_loader_div.hide();
-    }
-
-    if (scripts) {
-        let path_scripts = path.replace('.html','_scripts.html');
-        $.get(path_scripts+'?_=' + new Date().getTime(), function(data){
-            JQuery_globals_scripts_div.html(data);
-        });
-    }
-    $.ajaxSetup({async:true});
 }
 
 function close_all_before_page_load(click_obj) {
