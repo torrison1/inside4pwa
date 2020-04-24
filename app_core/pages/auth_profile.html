@@ -31,6 +31,9 @@
 
                                     <form method="post" id="ch_pass_form" class="p-3">
 
+                                        <!-- Easy CSRF Test -->
+                                        <input type="hidden" name="csrf_token" class="csrf_token" value="<?=$this->inside_lib->make_csfr_token($user->id)?>">
+
                                         <div class="form-group row mt-1">
                                             <label for="old_password" class="col-md-5 col-form-label text-left ttext_current_password"><?=$this->text->get('current_password');?></label>
                                             <div class="col-md-7">
@@ -87,6 +90,10 @@
                         <li class="list-group-item active text-center">User data</li>
                         <li class="list-group-item">
                             <form action="/auth_api/edit_info/" method="post" id="update_info_form" class="style_form form-inline" enctype="multipart/form-data">
+
+                                <!-- Easy CSRF Test -->
+                                <input type="hidden" name="csrf_token" class="csrf_token" value="<?=$this->inside_lib->make_csfr_token($user->id)?>">
+
                                 <div class="form-group row mt-1">
                                     <label for="name" class="col-md-3 col-form-label text-left">Name</label>
                                     <div class="col-md-9">
@@ -150,6 +157,10 @@
                                     <label class="col-md-3 col-form-label text-left">Image</label>
                                     <div class="col-md-9">
                                         <div class="form-group">
+                                            <img class="wblock1 profile_img" alt="User Image" id="profile_img" style="width: 100%" />
+                                            <input id="file_select" class="form-control" type="file" name="image">
+                                            <input id="img_code" name="img_code" type="hidden"/>
+                                            <img id="show_img" style="width:100%; margin-top: 5px;"/>
                                             <!--
                                             <?php if ($user->img != '') { ?>
                                             <img src="/files/uploads/users_img/<?= $user->img ?>" class="wblock1 profile_img" alt="User Image"/>
