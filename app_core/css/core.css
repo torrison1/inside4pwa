@@ -400,6 +400,12 @@ a {
     text-align: center;
 }
 
+@media (min-width: 1025px) {
+    .loader {
+        max-width: 400px;
+    }
+
+}
 /* -------- Mobile UU Updates -------- */
 .nav-link {
     background: #eee; text-align: right; color: #333 !important; padding:5px;

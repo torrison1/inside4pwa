@@ -32,21 +32,21 @@
                                     <form method="post" id="ch_pass_form" class="p-3">
 
                                         <div class="form-group row mt-1">
-                                            <label for="old_password" class="col-md-5 col-form-label text-left"><?=$this->text->get('current_password');?></label>
+                                            <label for="old_password" class="col-md-5 col-form-label text-left ttext_current_password"><?=$this->text->get('current_password');?></label>
                                             <div class="col-md-7">
                                                 <input class="form-control" type="text" id="old_password"  name="old_password">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="new_password" class="col-md-5 col-form-label text-left"><?=$this->text->get('new_password');?></label>
+                                            <label for="new_password" class="col-md-5 col-form-label text-left ttext_new_password"><?=$this->text->get('new_password');?></label>
                                             <div class="col-md-7">
                                                 <input class="form-control" type="text" id="new_password"  name="new_password">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="confirm_password" class="col-md-5 col-form-label text-left"><?=$this->text->get('repeat_new_password');?></label>
+                                            <label for="confirm_password" class="col-md-5 col-form-label text-left ttext_repeat_new_password"><?=$this->text->get('repeat_new_password');?></label>
                                             <div class="col-md-7 text-right">
                                                 <input class="form-control" type="text" id="confirm_password"  name="confirm_password">
                                             </div>
@@ -56,7 +56,7 @@
                                             <label class="col-md-5 col-form-labe text-left"></label>
                                             <div class="col-md-7 text-right">
 
-                                                <a class="btn btn-success change_pass"><?=$this->text->get('save_changes');?></a>
+                                                <a class="btn btn-success change_pass ttext_save_changes"><?=$this->text->get('save_changes');?></a>
                                                 <div class="ch_pass_msg message"></div>
                                             </div>
                                         </div>
@@ -94,9 +94,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group row phone_view_bock">
-                                    <label for="verify_phone" class="col-md-3 col-form-label text-left">Phone<br><br></label>
+                                    <label for="verify_phone" class="col-md-3 col-form-label text-left">Phone<br></label>
                                     <div class="col-md-9">
                                         <input class="form-control" type="text" placeholder="+38__________" id="verify_phone"  name="phone" value="<?=$user->phone?>">
+                                        <!--
                                         <?php if($user->phone) { ?>
                                         <?php if(!$user->is_verified_phone) { ?>
                                         <a class="verify_phone text-danger"><?=$this->text->get('verify_phone');?></a>
@@ -106,24 +107,30 @@
                                         <?php } else { ?>
                                         <a class="text-secondary"><?=$this->text->get('no_phone');?></a>
                                         <?php } ?>
+                                        -->
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-md-3 col-form-label text-left">Email<br><br></label>
+                                    <label class="col-md-3 col-form-label text-left">Email<br></label>
                                     <div class="col-md-9">
-                                        <input class="form-control" type="text" value="<?=$user->email?>" name="email">
+                                        <input class="form-control" type="text" value="<?=$user->email?>" name="email" id="email">
+                                        <!--
                                         <?php if(!$user->is_verified_email) { ?>
                                         <a class="text-danger verify_email"><?=$this->text->get('verify_email');?></a>
                                         <?php } else { ?>
                                         <a class="text-success" disabled><?=$this->text->get('verified');?></a>
                                         <?php } ?>
+                                        -->
                                     </div>
                                 </div>
                                 <div class="form-group row mt-1">
-                                    <label for="lang" class="col-md-3 col-form-label text-left"><?=$this->text->get('language');?></label>
+                                    <label for="lang" class="col-md-3 col-form-label text-left ttext_language"><?=$this->text->get('language');?></label>
                                     <div class="col-md-9">
-                                        <select class="wbgs1 form-control lang_select" name="lang" onchange="location.href = $(this).val();">
+                                        <select class="wbgs1 form-control lang_select" name="lang">
+                                            <option value="en">EN</option>
+                                            <option value="ru">RU</option>
+                                            <!--
                                             <?php foreach ($all_lang_arr as $lang) {
                                             $lang_prefix = "/".$lang['lang_alias'];
                                             $tmp_url = substr($_SERVER['REQUEST_URI'], 3);
@@ -134,6 +141,7 @@
                                             <?=$this->text->get($lang['lang_name']);?>
                                             </option>
                                             <?php } ?>
+                                            -->
                                         </select>
                                     </div>
                                 </div>
@@ -142,6 +150,7 @@
                                     <label class="col-md-3 col-form-label text-left">Image</label>
                                     <div class="col-md-9">
                                         <div class="form-group">
+                                            <!--
                                             <?php if ($user->img != '') { ?>
                                             <img src="/files/uploads/users_img/<?= $user->img ?>" class="wblock1 profile_img" alt="User Image"/>
                                             <div class="checkbox checkbox_dell_img mt-1">
@@ -153,6 +162,7 @@
                                             <input id="img_code" name="img_code" type="hidden"/>
                                             <img id="show_img" style="width:100%; margin-top: 5px;"/>
                                             <?php } ?>
+                                            -->
                                         </div>
                                     </div>
                                 </div>

@@ -6,9 +6,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <!--
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    -->
 
     <meta name="theme-color" content="#4e8ef7">
 
@@ -40,7 +42,7 @@
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/826a81e09f.js" crossorigin="anonymous"></script>
 
     <!-- ---------------------------------------  Nav  ------------------------------------------------ -->
 
@@ -62,12 +64,10 @@
 </div>
 
 <div class="bottom_block">
-
     <div class="ripple auth_click"><i class="fas fa-user"></i></div>
     <div class="ripple contacts_page_click"><i class="fas fa-phone"></i></div>
     <div class="ripple blog_list_click"><i class="fas fa-rss" ></i></div>
     <div class="menu_open ripple"><i class="fas fa-bars"></i></div>
-
 </div>
 
 <div id="touchSideSwipe" class="touch-side-swipe">
@@ -76,7 +76,8 @@
         <li class="ripple main_page_click">Home Page</li>
         <li class="ripple blog_list_click">Content</li>
         <li class="ripple contacts_page_click">Contacts</li>
-        <li class="ripple">Agreement</li>
+        <li class="ripple" onclick="forceSWupdate();">Update App</li>
+        <li class="ripple agreement_link_click">Agreement</li>
         <li class="ripple logout_click">Logout</li>
     </ul>
 </div>

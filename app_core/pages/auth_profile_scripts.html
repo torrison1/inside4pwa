@@ -9,6 +9,15 @@
         $('.ttext_save_changes').html('Save Changes');
         $('.ttext_change_password').html('Change Password');
 
+        $('.ttext_'+'current_password').html('Current Password');
+        $('.ttext_'+'new_password').html('New Password');
+        $('.ttext_'+'repeat_new_password').html('Repeat New Password');
+        $('.ttext_'+'language').html('Language');
+
+        $('#name').val(user_data.username);
+        $('#verify_phone').val(user_data.phone);
+        $('#email').val(user_data.email);
+
         JQuery_globals_page_center.show();
         JQuery_globals_loader_div.hide();
 

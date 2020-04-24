@@ -25,15 +25,11 @@ $(document).ready(function() {
 
     // -------------------------- Bind Clicks ------------------------------------------
 
-    // -------------------------- Contacts Page -------------------------------
+    // -------------------------- Nav -------------------------------
     $('.contacts_page_click').on('click', function(){ load_page('app_core/pages/contacts.html', false); });
-
-
-    // -------------------------- Main Page Back Clicks -------------------------------
     $('.main_page_click').on('click', function(){ load_page('app_core/pages/main.html', true); });
-
-    // -------------------------- Blog List -------------------------------
     $('.blog_list_click').on('click', function(){ load_page('app_core/pages/blog.html', true, true, true); });
+    $('.agreement_link_click').on('click', function(){ load_page('app_core/pages/agreement.html', false); });
 
 
     // -------------------------- Auth Click -------------------------------
@@ -179,6 +175,22 @@ function close_all_before_page_load(click_obj) {
     $('.navbar-collapse').collapse('hide');
 
     */
+}
+
+function forceSWupdate () {
+
+    if ('serviceWorker' in navigator) {
+        caches.keys().then(function(cacheNames) {
+            cacheNames.forEach(function(cacheName) {
+                caches.delete(cacheName);
+            });
+        });
+    }
+    setTimeout(function(){
+        alert('App Updated!');
+        $('body').empty();
+        window.location.reload(true);
+    }, 700);
 }
 
 // Debug Function

@@ -1,9 +1,13 @@
 var cacheName = 'hello-pwa';
 var filesToCache = [
-    // './',
-    // './index.html',
-    // './app_core/css/core.css',
-    // './pwa/pwa.js'
+    './',
+    './index.html',
+    './pwa/pwa.js',
+    './app_core/css/bootstrap.min.css',
+    './app_core/css/core.css',
+    './app_core/inside_front/menu_basis/files/css/demo.css',
+    'https://fonts.googleapis.com/css?family=Ubuntu+Condensed',
+    'https://kit.fontawesome.com/826a81e09f.js'
 ];
 
 /* Start the service worker and cache all of the app's content */
