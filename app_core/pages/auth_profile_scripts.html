@@ -265,17 +265,10 @@
 
     $(function(){
 
+        fill_all_ttexts();
+
         $('.api_text.user_title').html('['+user_data.id+'] '+user_data.username+' '+user_data.email+'');
-        if (user_data.is_admin == 1)$('.api_toggle.admin_button').hide();
-
-        $('.ttext_save_changes').html('Save Changes');
-        $('.ttext_change_password').html('Change Password');
-
-        $('.ttext_'+'current_password').html('Current Password');
-        $('.ttext_'+'new_password').html('New Password');
-        $('.ttext_'+'repeat_new_password').html('Repeat New Password');
-        $('.ttext_'+'language').html('Language');
-
+        if (user_data.is_admin == 1) $('.api_toggle.admin_button').hide();
         $('#name').val(user_data.username);
         $('#verify_phone').val(user_data.phone);
         $('#email').val(user_data.email);
