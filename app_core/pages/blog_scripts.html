@@ -30,7 +30,8 @@
             e.preventDefault();
         });
 
-        $.get('/info/feed/?html_blocks=1', function(data){
+        api_call('/info/feed/?html_blocks=1', 'GET', function(data){
+
             $('.pages_list_holder').html(data+data+data+data+data);
 
             JQuery_globals_page_center.show();

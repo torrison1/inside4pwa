@@ -4,8 +4,8 @@
         $('#phone').mask('+380000000000');
     });
     loadScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js');
-    loadScript('/files/canvas/jquery.exif.js');
-    loadScript('/files/canvas/jquery.canvasResize.js');
+    loadScript('app_core/inside_front/vendor/canvas/jquery.exif.js');
+    loadScript('app_core/inside_front/vendor/canvas/jquery.canvasResize.js');
 
 
     $(function(){
@@ -275,7 +275,7 @@
 
         $('.csrf_token').val(user_data.csfr_token);
 
-        $('#profile_img').attr('src', '/files/uploads/users_img/'+user_data.img);
+        $('#profile_img').attr('src', 'https://ux.ikiev.biz/files/uploads/users_img/'+user_data.img);
 
         JQuery_globals_page_center.show();
         JQuery_globals_loader_div.hide();

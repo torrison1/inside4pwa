@@ -125,15 +125,19 @@ function log_out() {
 
 function api_call(url, method, callback_function, post_array = {}) {
 
-    var ci_session = encodeURIComponent(localStorage.getItem('ci_session'));
+    let ci_session = encodeURIComponent(localStorage.getItem('ci_session'));
+
+    let api_server_url = 'https://ux.ikiev.biz';
+
+    url = api_server_url+url;
 
     if (method === 'GET') {
 
         if (url.indexOf('?') > -1)
         {
-            url += url+'&ci_session='+ci_session;
+            url = url+'&ci_session='+ci_session;
         } else {
-            url += url+'?ci_session='+ci_session;
+            url = url+'?ci_session='+ci_session;
         }
 
         $.get(url, function(data) {
